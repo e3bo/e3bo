@@ -4,8 +4,13 @@
 [[!inline pages=sidebar raw=yes]]
 """]]
 
+Welcome to my open lab notebook.
+
+All original content of Eamon O'Dea is in the public domain by the
+Creative Commons Zero declaration,
+[CC0](http://creativecommons.org/publicdomain/zero/1.0/).
+
 [[!inline pages="page(./posts/*) and !*/Discussion" show="10"
 actions=yes rootpage="posts"]]
-
 
 This blog is powered by [ikiwiki](http://ikiwiki.info).
