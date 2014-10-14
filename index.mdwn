@@ -4,7 +4,7 @@
 [[!inline pages=sidebar raw=yes]]
 """]]
 
-Welcome to my open lab notebook.
+Welcome to my experiment in [[!wikipedia open_notebook_science]].
 
 All original content of Eamon O'Dea is in the public domain by the
 Creative Commons Zero declaration,
