@@ -1,0 +1,21 @@
+
+This is a quick and dirty phylogeographic analysis of the U.S. PEDV
+sequences with dates and collection states.
+
+
+[[!img  defaults size=200x200 alt="results plots"]]
+
+[[get-seqs.r]]
+[[write-locs.r]]
+[[locations.csv]]
+[[parse.py]]
+[[pedv-usa-mexico.csv]]
+
+[[!img rates-with-at-least-bf-3.jpg]]
+
+[[!img tree.png]]
+
+It seems there is some information about interstate migration of the
+virus in the sequences.
+
+Running time was about 11 hours on snow using a both a CPU and GPU.

@@ -1,0 +1,20 @@
+[[!if test="enabled(sidebar)" then="""
+[[!sidebar]]
+""" else="""
+[[!inline pages=sidebar raw=yes]]
+"""]]
+
+Welcome to my experiment in [[!wikipedia open_notebook_science]].
+
+All original content of Eamon O'Dea is in the public domain by the
+Creative Commons Zero declaration,
+[CC0](http://creativecommons.org/publicdomain/zero/1.0/).
+
+If you have any questions or comments, you can reach me at odea35@[name of google email website].com.
+
+[[planning]]
+
+[[!inline pages="page(./posts/*) and !*/Discussion" show="10"
+actions=yes rootpage="posts"]]
+
+This blog is powered by [ikiwiki](http://ikiwiki.info).
