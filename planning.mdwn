@@ -1,0 +1,15 @@
+
+# Major goals
+
+- Develop simulated or approximate likelihood method for location of point of entry of an infection on a weighted network from observation of the first wave
+ - Gap: have not seen any work on weighted, directed networks for this proble 
+- Assess ability to estimate edge weights with a phylogeographic analysis
+  - Gap: Method of Lemey et al. 2009 seems reasonable, but there does not seem to be an example of a careful study of performance like in Lemey et al. 2010 or Landis et al. 2013
+- Assess ability to jointly estimate edge weights and location source
+  - Gap: integration of epidemiological molecular data for source localization. Lemey 2014
+
+- Wrap all this into a shiny software package
+  - Create something that could be useful in identifying source of outbreaks, designing sampling schemes
+
+
+
