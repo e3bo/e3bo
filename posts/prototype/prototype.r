@@ -14,11 +14,17 @@ regDNA <- as.character(regDNA)
 pedvMSA <- msa(regDNA, nms)
 
 treeChar <- write.tree(tree)
-mod <- phyloFit(pedvMSA, tree=treeChar, no.opt='branches', ninf.sites=1)
+mod <- phyloFit(pedvMSA, tree=treeChar, subst.mod='UNREST', no.opt='branches', ninf.sites=1)
+
+mod$tree <- treeChar
+mod2 <- phyloFit(pedvMSA, init.mod=mod, subst.mod='UNREST', no.opt='branches', ninf.sites=1)
+
+write.msa(pedvMSA, file='pedv-regions.fasta', format='FASTA')
+
+
 
 # TODO
-# 1. stop fitting branch lengths
-# 2. add inner loop to do regression
+# 1. add inner loop to do regression
 
 
 
