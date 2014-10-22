@@ -1,8 +1,21 @@
 
+
+
+
+
 An EM approach seems promising. In the expectation step, we compute
 the probability of any particular combination of states at either end
 of an edge in a tree. The appendix of Seipel and Hausler 2010 shows
-how to do this. We go a bit further and calculate these probabilities
+how to do this. 
+
+
+
+
+When the number of jumps is low, it might increase efficiency to
+approximate the transition probabilities with a mixture of multinomial
+distributions.
+
+We go a bit further and calculate these probabilities
 given a particular number of jumps, for some hopefully small set of
 jumps that includes most likely possiblities. Conditional on a given
 number of jumps, the transition probabilities will be
