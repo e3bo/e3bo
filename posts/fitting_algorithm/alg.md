@@ -3,7 +3,7 @@ s:
 mathjax:
 -->
 
-# Background and Notation
+### Background and Notation
 
 We will be using some of the equations given by [Seipel and
   Haussler](http://mbe.oxfordjournals.org/content/21/3/468), and thus
