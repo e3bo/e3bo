@@ -23,8 +23,3 @@ write.msa(pedvMSA, file='pedv-regions.fasta', format='FASTA')
 
 
 
-# TODO
-# 1. add inner loop to do regression
-
-
-
