@@ -1,1 +1,1 @@
-phyloFit --init-mod init.mod --no-opt branches --min-informative 1 pedv-regions.fasta
+phyloFit -s JC69 --init-mod init.mod --scale-only --min-informative 1 -o JC69-release pedv-regions.fasta
