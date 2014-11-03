@@ -1,1 +1,1 @@
-~/src/phast-dev/bin/phyloFit --subst-mod UNREST --init-mod init.mod --no-opt branches --min-informative 1 pedv-regions.fasta
+~/src/phast-dev/bin/phyloFit --subst-mod UNREST --init-mod init.mod --scale-only --min-informative 1 sim.fasta
