@@ -18,10 +18,24 @@ def HDiag(lam, x, i, j):
      ret += x[i] * c2
   return ret
 
+# one step model
+
+p1 = lambda1/(lambda1 + lambda2)
+p2 = lambda2/(lambda1 + lambda2)
 
 
+xg, xs, ps, pg, lam_s, lam_g = var('xg, xs, ps, pg, lam_s, lam_g')
 
+l(lambda1, lambda2) = xg * log(p1) + xs * log(p2)
+Hsingle = l.diff(2)
 
+S = lam_s + lam_g
+ps = lam_s^2/S^2 + lam_g^2/S^2
+pg = 2*lam_s*lam_g/S^2
+
+l(lam_g, lam_s) = xg * log(pg) + xs * log(ps)
+
+Hdouble = l.diff(2)
 
 
 
