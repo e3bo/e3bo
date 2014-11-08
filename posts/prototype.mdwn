@@ -9,12 +9,12 @@ Records for reproduction:
 - [fitting code repository](https://github.com/e3bo/phast-regression) 
 - [zip archive with version run](https://github.com/e3bo/phast-regression/archive/v0.1.zip)
 - [[bash script|runDev.sh]]
-- [seq-gen script](./prototype/runSG.sh)
-- [input-file](./prototype/init.mod)
-- [design matrix](./prototype/designMat2)
+- [[seq-gen script|runSG.sh]]
+- [[input-file|init.mod]]
+- [[design matrix|designMat2]]
 
-Stderr:
-- [[se]]
+Output:
+- [[stderr|se]]
 
 
 
