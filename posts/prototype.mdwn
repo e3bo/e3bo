@@ -1,0 +1,22 @@
+
+Finally got a simple prototype working that seems to indicate that the
+pathwise BFGS and coordinate descent approach is not such a bad
+idea.  It can calculate a regularization solution path for a model with
+an intercept and two predictors. The intercept-only and full fits
+agree with simulation, and the path between seems reseasonable.
+
+Records for reproduction:
+- [fitting code repository](https://github.com/e3bo/phast-regression) 
+- [zip archive with version run](https://github.com/e3bo/phast-regression/archive/v0.1.zip)
+- [bash script](./runDev.sh)
+- [seq-gen script](./runSG.sh)
+- [input-file](./init.mod)
+- [design matrix](./designMat2)
+
+Stderr:
+- [[se]]
+
+
+
+
+
