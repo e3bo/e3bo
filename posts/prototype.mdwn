@@ -6,6 +6,7 @@ an intercept and two predictors. The intercept-only and full fits
 agree with simulation, and the path between seems reseasonable.
 
 Records for reproduction:
+
 * [fitting code repository](https://github.com/e3bo/phast-regression) 
 * [zip archive with version run](https://github.com/e3bo/phast-regression/archive/v0.1.zip)
 * [[bash script|runDev.sh]]
@@ -16,8 +17,10 @@ Records for reproduction:
 
 
 Output:
+
 * [[stderr|se]]
-[[!img path.png size=200x200]]
+
+[[!img path.png size=200x200 alt='plot of fits grepped from se']]
 
 
 
