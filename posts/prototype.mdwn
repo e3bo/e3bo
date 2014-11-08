@@ -6,16 +6,18 @@ an intercept and two predictors. The intercept-only and full fits
 agree with simulation, and the path between seems reseasonable.
 
 Records for reproduction:
-- [fitting code repository](https://github.com/e3bo/phast-regression) 
-- [zip archive with version run](https://github.com/e3bo/phast-regression/archive/v0.1.zip)
-- [[bash script|runDev.sh]]
-- [[seq-gen script|runSG.sh]]
-- [[input-file|init.mod]]
-- [[design matrix|designMat2]]
+* [fitting code repository](https://github.com/e3bo/phast-regression) 
+* [zip archive with version run](https://github.com/e3bo/phast-regression/archive/v0.1.zip)
+* [[bash script|runDev.sh]]
+* [[seq-gen script|runSG.sh]]
+* [[input-file|init.mod]]
+* [[design matrix|designMat2]]
+* [[tree|mcc.nh]]
+
 
 Output:
-- [[stderr|se]]
-
+* [[stderr|se]]
+[[!img path.png size=200x200]]
 
 
 
