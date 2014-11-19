@@ -38,6 +38,9 @@ mod$tree <- treeChar
 mod2 <- phyloFit(pedvMSA, init.mod=mod, subst.mod='UNREST',
                  no.opt=c('backgd', 'branches'), ninf.sites=1, design.matrix=mod$design.matrix, log.file='out')
 
+matplot(exp(mod2$penalties), mod2$beta[,-1], type='l')
+
+
 mod3 <- phyloFit(pedvMSA, subst.mod='UNREST', tree=mod$tree,
                  no.opt=c('backgd', 'branches'), ninf.sites=1, design.matrix=mod$design.matrix)
 
