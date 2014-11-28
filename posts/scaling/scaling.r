@@ -24,11 +24,11 @@ mod <- structure(list(alphabet = "ACGT", backgd = c(0.25, 0.25, 0.25,
     eta.coefficients = c(0.2, 0, 0), design.matrix = structure(c(1, 
     1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 
     1, 0, 0, 1, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0), .Dim = c(12L, 
-    3L)), npenalties = 100), .Names = c("alphabet", "backgd", 
+    3L)), npenalties = 20), .Names = c("alphabet", "backgd", 
 "rate.matrix", "subst.mod", "likelihood", "eta.coefficients", 
 "design.matrix", "npenalties"), class = "tm")
 
-
+mod$design.matrix <- cbind(mod$design.matrix, matrix(runif(12), nrow=12))
 mod$tree <- treeChar
 
 #mod$design.matrix <- cbind(mod$design.matrix, matrix(runif(n=12*1), nrow=12))
@@ -36,7 +36,14 @@ mod$tree <- treeChar
 #mod$design.matrix[,-1] <- mod$design.matrix[,-1]/.3892
 
 mod2 <- phyloFit(pedvMSA, init.mod=mod, subst.mod='UNREST',
-                 no.opt=c('backgd', 'branches'), ninf.sites=1, design.matrix=mod$design.matrix, log.file='out')
+                 no.opt=c('backgd', 'branches'), ninf.sites=1, design.matrix=mod$design.matrix, log.file='out', npenalties=10)
+
+png('pre-proposal.png')
+matplot(exp(mod2$penalties), mod2$beta[,-1], type='l',
+        xlab="L_1 penalty", ylab="Regression coefficient",
+        lty=1)
+dev.off()
+
 
 mod3 <- phyloFit(pedvMSA, subst.mod='UNREST', tree=mod$tree,
                  no.opt=c('backgd', 'branches'), ninf.sites=1, design.matrix=mod$design.matrix)
