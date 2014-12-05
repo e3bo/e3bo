@@ -1,0 +1,27 @@
+
+The optimization now uses a new algorithm, LHAC, that is based on
+limited memory BFGS and designed to find sparse soluations using an L1
+penalty. This seems to be working much better than the original
+approach based on BFGS in terms of not getting stuck as the penalty
+decreases. However, it does still get stuck as the below graph
+shows. It seems to depend on when I allow the matrix that approximates
+the Hessian to be updated. Also, the search starts taking very bad
+steps for low penalties. But these problems seem like they are
+solvable, and the algorithm seems to scale well enough such that
+cross-validation will be feasible for realistic problem sizes.
+
+[[!img path.png size=200x200 alt='plot of fits grepped from stdout']]
+
+Records for reproduction:
+
+* [[Makefile]]
+* [phast fork repository](https://github.com/e3bo/phast-regression)
+* [official LHAC repository](https://github.com/LHAC/LHAC/tree/GENERIC)
+* [zip archive with phast version run](https://github.com/e3bo/phast-regression/archive/v0.2.zip)
+* non-public lhac fork commit: 66d3a27793bb366ddd7ec9d69852a0b0fe1fc217
+
+
+
+
+
+
