@@ -1,5 +1,5 @@
 
-I ran the supplemenatry beast xml file from [Lemey et
+I ran the supplementary beast XML file from [Lemey et
 al. 2014](http://dx.doi.org/10.1371/journal.ppat.1003932) that uses
 BSSVS to on coefficients for linear predictors of migration rates. It
 took about 12 hours on one CPU on snow, but some of the ESS are close
@@ -8,7 +8,7 @@ more CPU time.
 
 Assuming the numbering of coefficientsTimesIndicators is in the same
 order of elements in the testDesignMatrix, I do reproduce the result
-that the two non-neglible effecat are seats on air travel routes and
-sample size of the recipitient air travel communities.
+that the two non-negligible effects are seats on air travel routes and
+sample size of the recipient air travel communities.
 
 

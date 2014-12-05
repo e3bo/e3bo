@@ -1,6 +1,6 @@
 
 The optimization now uses a new algorithm, LHAC, that is based on
-limited memory BFGS and designed to find sparse soluations using an L1
+limited memory BFGS and designed to find sparse solutions using an L1
 penalty. This seems to be working much better than the original
 approach based on BFGS in terms of not getting stuck as the penalty
 decreases. However, it does still get stuck as the below graph

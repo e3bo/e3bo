@@ -1,6 +1,6 @@
 
 Finally got a simple prototype working that seems to indicate that the
-pathwise BFGS and coordinate descent approach is not such a bad
+path-wise BFGS and coordinate descent approach is not such a bad
 idea.  It can calculate a regularization solution path for a model with
 an intercept and two predictors. The intercept-only and full fits
 agree with simulation, and the path between seems reasonable.
