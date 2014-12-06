@@ -13,7 +13,7 @@ Records for reproduction:
 * [[seq-gen script|runSG.sh]]
 * [[input-file|init.mod]]
 * [[design matrix|designMat2]]
-* [[tree|mcc.nh]]
+
 
 
 Output:
