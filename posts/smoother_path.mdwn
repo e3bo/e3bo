@@ -1,0 +1,19 @@
+
+
+The inputs for the L-BFGS updates after each iteration are the change
+in the parameters and the change in the gradient. By requiring the dot
+product of these vectors to be fairly large for an update (i.e., above
+0.01), we avoid the false convergence seen [[here|lhac]]. However,
+this rule causes some zigzagging in the paths for lower
+penalties. Below is a much smoother path obtained by letting the dot
+product get lower as the penalty decreases.
+
+[[!img path.png size=200x200 alt='plot of fits grepped from stdout']]
+
+#### Associated files:
+
+[zip archive with phast-regression version run](https://github.com/e3bo/phast-regression/archive/v0.2.zip)
+
+non-public lhac fork commit: a0d4600
+
+[[!inline pages="posts/smoother_path/*" archive="yes" rss="no" atom="no" template="titlepage"]]
