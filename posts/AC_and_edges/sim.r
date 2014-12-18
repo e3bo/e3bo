@@ -2,7 +2,6 @@ library(Rcpp)
 
 cppFunction('
   NumericMatrix sisPairCt(double lambda, double E, double m0, double n0, int maxSteps, int k){
-  // taken in part from http://phylodynamics.blogspot.com/2013/06/continuous-time-markov-chain-ctmc.html
     NumericMatrix res(maxSteps, 5L);
     double t = 0, r1, r2, r3, r4, tot, r, dt;
     int Nss = m0;
@@ -42,43 +41,40 @@ cppFunction('
 
 set.seed(1014)
 
-ts <- sisPairCt(lambda=.3, E=2000, m0=0, n0=500, 100000, 4);
+k=4
+E=2000
+N <- E/k
+lambda = .3
+muEq = 1/((lambda*k)^2 + lambda^2*k - lambda)
+nuEq = (1 + (1 - 2*lambda*k) * muEq)
+NsiEq = E * (1 - muEq - nuEq) / 2
+NssEq = E * muEq
+NsEq = (NsiEq + NssEq)/k
+NiEq = N - NsEq
 
+ts <- sisPairCt(lambda=lambda, E=E, m0=E*muEq, n0=E*nuEq, maxSteps=100000, k=k);
+colnames(ts) <- c('time', 'Nss', 'Nii', 'Nsi', 'Ns')
+ts <- cbind(ts, Ni=N - ts[, 'Ns'])
+yfun <- stepfun(ts[-1, 'time'], ts[, 'Ni'])
+domain <- range(knots(yfun))
 
-N <- 1000
-tmpf <- function(x) sisd(R0=x, g=.1, h=0.001, N=N, I0=N/2, maxsteps=100000)
-
-R0 <- seq(from=.2, to=2, len=100)
-system.time(ts <- lapply(R0, tmpf))
-
-tmpf <- function(x, burnin=1000) {
-    del <- seq_len(1000)
-    y <- x[-del, 2]
-    mu <- mean(y)
-    n <- length(y)
-    ss <- var(y)
-    c(ac=mean((y[-length(y)] - mu)* (y[-1] - mu) )/ ss,
-      ystar=mu/N)
+getAvg <- function(f, lower, upper, ...){
+    dx <- 1/(upper - lower)
+    tmpf <- function(x) f(x)*dx
+    integrate(tmpf, lower=lower, upper=upper, ...)$value
 }
-sim <- sapply(ts, tmpf)
 
-tmpf <- function(x) infeq(R0=x, recoveryRate=.1, nImports=1, nNodes=N)[c('ac', 'ystar')]
-theo <- sapply(R0, tmpf)
+mu <- getAvg(yfun, lower=domain[1], upper=domain[2], subdivisions=10000)
 
-sim <- data.frame(t(sim), R0=R0, type='simulation')
-theo <- data.frame(t(theo), R0=R0, type='theory')
+devfun <- function(x) yfun(x) - mu
 
-cmp <- rbind(sim, theo)
+getAutoCov <- function(f, lag, lower, upper, ...){
+    dx <- 1/(upper - lower)
+    tmpf <- function(x) f(x + lag)*f(x) *dx
+    integrate(tmpf, lower=lower, upper=upper, ...)$value
+}
 
-plot(ac~R0, data=cmp[cmp$type=='theory', ], type='l',
-     ylab='lag-1 autocorr.', xlab='R0 approx.')
-points(ac~R0, data=cmp[cmp$type=='simulation',], col=2)
+aCov <- getAutoCov(devfun, 1, domain[1], domain[2], subdivisions=100000)
+sigSq <- getAutoCov(devfun, 0, domain[1], domain[2], subdivisions=100000)
 
-plot(ystar~R0, data=cmp[cmp$type=='theory', ], type='l',
-     ylab='equilibrium prevalence', xlab='R0 approx.')
-points(ystar~R0, data=cmp[cmp$type=='simulation',], col=2)
-
-#' The theory (lines) and simulation (red circles) agree fairly well
-#' even though the theory is for continuous time and simulations were
-#' in discrete time. Also, theoretical equilibrium prevalence is the
-#' limit as the population size approaches infinity.
+autoCor <- aCov/sigSq
